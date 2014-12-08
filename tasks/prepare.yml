@@ -1,0 +1,15 @@
+---
+- name: rbenv | Load the OS specific variables
+  include_vars: "{{ansible_os_family | lower}}.yml"
+
+- name: rbenv | Install ruby-build dependencies (Debian)
+  apt: pkg={{ item }} state=present install_recommends=no
+  with_items: build_dependencies
+  sudo: true
+  when: ansible_os_family == "Debian"
+
+- name: rbenv | Install ruby-build dependencies (RedHat)
+  yum: pkg={{ item }} state=present install_recommends=no
+  with_items: build_dependencies
+  sudo: true
+  when: ansible_os_family == "RedHat"

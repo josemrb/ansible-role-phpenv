@@ -1,0 +1,28 @@
+---
+rbenv_repo: "git://github.com/sstephenson/rbenv.git"
+
+rbenv_plugins:
+  - { name: "ruby-build",
+      repo: "git://github.com/sstephenson/ruby-build.git",
+      version: "master",
+      depth: 1 }
+  - { name: "rbenv-gem-rehash",
+      repo: "git://github.com/sstephenson/rbenv-gem-rehash.git",
+      version: "master",
+      depth: 1 }
+  - { name: "rbenv-default-gems",
+      repo: "git://github.com/sstephenson/rbenv-default-gems.git",
+      version: "master",
+      depth: 1 }
+  - { name: "rbenv-update",
+      repo: "git://github.com/rkh/rbenv-update.git",
+      version: "master",
+      depth: 1 }
+  - { name: "rbenv-vars",
+      repo: "git://github.com/sstephenson/rbenv-vars.git",
+      version: "master",
+      depth: 1 }
+  - { name: "rbenv-gem-update",
+      repo: "git://github.com/nicknovitski/rbenv-gem-update.git",
+      version: "master",
+      depth: 1 }
