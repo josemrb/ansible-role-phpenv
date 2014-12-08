@@ -1,7 +1,7 @@
 Ansible Role: Rbenv
 =========
 
-A brief description of the role goes here.
+Role to install rbenv and multiple ruby versions.
 
 Requirements
 ------------
