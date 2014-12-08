@@ -1,0 +1,14 @@
+---
+rbenv:
+  env: system
+  version: v0.4.0
+  global: 2.1.5
+  rubies:
+    - 2.1.5
+
+rbenv_default_gems:
+  - bundler
+  - pry
+  - rubocop
+
+rbenv_users: []

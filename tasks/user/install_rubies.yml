@@ -1,0 +1,14 @@
+---
+- name: install rubies for each user
+  shell: bash -lc "rbenv install --skip-existing {{ item[1] }}"
+  sudo: true
+  sudo_user: "{{ item[0].name }}"
+  with_nested:
+    - rbenv_users
+    - rbenv.rubies
+
+- name: set ruby {{ rbenv.global }} as global for each user
+  shell: bash -lc "rbenv global {{ rbenv.global }} && rbenv rehash"
+  sudo: true
+  sudo_user: "{{ item.name }}"
+  with_items: rbenv_users

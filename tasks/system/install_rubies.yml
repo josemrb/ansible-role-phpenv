@@ -1,0 +1,7 @@
+---
+- name: install rubies
+  shell: bash -lc "rbenv install --skip-existing {{ item }}"
+  with_items: rbenv.rubies
+
+- name: set ruby {{ rbenv.global }} as global
+  shell: bash -lc "rbenv global {{ rbenv.global }} && rbenv rehash"

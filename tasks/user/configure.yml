@@ -1,0 +1,25 @@
+---
+- name: set default-gems
+  template: >
+    src=../../templates/default-gems.j2
+    dest={{ item.home }}/.rbenv/default-gems
+  with_items: rbenv_users
+  sudo: true
+  sudo_user: "{{ item.name }}"
+
+- name: set gemrc
+  copy: src=../../files/gemrc dest={{ item.home }}/.gemrc
+  with_items: rbenv_users
+  sudo: true
+  sudo_user: "{{ item.name }}"
+
+- name: set vars
+  copy: src=../../files/vars dest={{ item.home }}/.rbenv/vars
+  with_items: rbenv_users
+  sudo: true
+  sudo_user: "{{ item.name }}"
+
+- name: chown permission to .rbenv directory
+  shell: "chown -R {{ item.name }}:{{ item.name }} {{ item.home }}/.rbenv"
+  sudo: true
+  with_items: rbenv_users

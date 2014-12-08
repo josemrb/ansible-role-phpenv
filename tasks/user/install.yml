@@ -1,0 +1,29 @@
+---
+- name: checkout rbenv_repo for selected users
+  git: >
+    repo={{ rbenv_repo }}
+    dest={{ rbenv_root }}
+    version={{ rbenv.version }}
+    accept_hostkey=true
+  with_items: rbenv_users
+  sudo: true
+  sudo_user: "{{ item.name }}"
+
+- name: create plugins directory for selected users
+  file: state=directory path={{ rbenv_root }}/plugins
+  with_items: rbenv_users
+  sudo: true
+  sudo_user: "{{ item.name }}"
+
+- name: install plugins for selected users
+  git: >
+    repo={{ item[1].repo }}
+    dest={{ rbenv_root }}/plugins/{{ item[1].name }}
+    version={{ item[1].version }}
+    depth={{ item[1].depth }}
+    accept_hostkey=true
+  with_nested:
+    - rbenv_users
+    - rbenv_plugins
+  sudo: true
+  sudo_user: "{{ item[0].name }}"

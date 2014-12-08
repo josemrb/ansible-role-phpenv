@@ -1,0 +1,19 @@
+---
+- name: checkout rbenv_repo
+  git: >
+    repo={{ rbenv_repo }}
+    dest={{ rbenv_root }}
+    version={{ rbenv.version }}
+    accept_hostkey=true
+
+- name: create plugins directory
+  file: state=directory path={{ rbenv_root }}/plugins
+
+- name: install plugins
+  git: >
+    repo={{ item.repo }}
+    dest={{ rbenv_root }}/plugins/{{ item.name }}
+    version={{ item.version }}
+    depth={{ item.depth }}
+    accept_hostkey=true
+  with_items: rbenv_plugins
