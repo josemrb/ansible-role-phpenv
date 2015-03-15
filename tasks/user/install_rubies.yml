@@ -5,10 +5,10 @@
   sudo_user: "{{ item[0].name }}"
   with_nested:
     - rbenv_users
-    - rbenv.rubies
+    - rbenv_rubies
 
-- name: set ruby {{ rbenv.global }} as global for each user
-  shell: bash -lc "rbenv global {{ rbenv.global }} && rbenv rehash"
+- name: set ruby {{ rbenv_global }} as global for each user
+  shell: bash -lc "rbenv global {{ rbenv_global }} && rbenv rehash"
   sudo: true
   sudo_user: "{{ item.name }}"
   with_items: rbenv_users
