@@ -1,8 +1,8 @@
 ---
 - include_vars: "main.yml"
-- include_vars: "{{ rbenv.env }}.yml"
+- include_vars: "{{ rbenv_env }}.yml"
 
-- include: "{{ rbenv.env }}/install.yml"
+- include: "{{ rbenv_env }}/install.yml"
 
 - name: add rbenv initialization to profile
   template: >

@@ -1,38 +1,57 @@
-Ansible Role: Rbenv
-=========
+# Ansible Role: Rbenv
 
 Role to install rbenv and multiple ruby versions.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Tested with Ansible 1.8.4.
 
-Role Variables
---------------
+## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```yaml
+---
+# This could be set to 'user' to support user installs.
+rbenv_env: system
 
-Dependencies
-------------
+rbenv_version: v0.4.0
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+# This sets the rbenv global ruby version.
+rbenv_global: 2.2.1
 
-Example Playbook
-----------------
+# List of ruby versions to install.
+rbenv_rubies:
+  - 2.2.1
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+# List of defaults gem to install on each ruby version.
+rbenv_default_gems:
+  - bundler
+  - pry
+  - rubocop
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+# List of users to install rbenv and ruby versions to.
+# Ignored if rbenv_env is set to 'system'
+rbenv_users: []
+```
 
-License
--------
+## Dependencies
+
+- ANXS.git
+- ANXS.build-essential
+
+## Example Playbook
+
+```yaml
+- hosts: ruby-devbox
+  roles:
+    - pablocrivella.rbenv
+```
+
+For a more detailed example check this [Playbook](https://github.com/pablocrivella/apps-forge/blob/master/provisioning/ruby.yml).
+
+## License
 
 MIT
 
-Author Information
-------------------
+## Author Information
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Pablo Crivella Backend Engineer @ NobelBiz.

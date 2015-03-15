@@ -1,4 +1,4 @@
-{% if rbenv.env == 'system' %}
+{% if rbenv_env == 'system' %}
 export PATH={{ rbenv_root }}/bin:$PATH
 export RBENV_ROOT="{{ rbenv_root }}"
 eval "$(rbenv init -)"
