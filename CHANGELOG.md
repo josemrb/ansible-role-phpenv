@@ -1,3 +1,9 @@
+## v2.0.2
+
+BUG FIXES
+
+- Fix Error where ruby 2.2.1 could not be installed on debian 7.8.
+
 ## v2.0.0
 
 BREAKING CHANGES

@@ -1,5 +1,11 @@
 # Ansible Role: Rbenv
 
+[![Travis
+CI](http://img.shields.io/travis/pablocrivella/ansible-role-rbenv.svg?style=flat)](http://travis-ci.org/pablocrivella/ansible-role-rbenv)
+[![test-suite](http://img.shields.io/badge/ansible--roles--specs-ansible--role--rbenv-blue.svg?style=flat)](https://github.com/pablocrivella/ansible-roles-specs/tree/master/ansible-role-rbenv/)
+[![Ansible
+Galaxy](http://img.shields.io/badge/galaxy-pablocrivella.rbenv-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2332)
+
 Role to install rbenv and multiple ruby versions.
 
 ## Requirements
