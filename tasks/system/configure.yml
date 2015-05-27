@@ -6,9 +6,9 @@
   sudo: true
 
 - name: set gemrc
-  copy: src=../../files/gemrc dest=etc/gemrc
+  copy: src=../../files/gemrc dest=/etc/gemrc
   sudo: true
 
 - name: set vars
-  copy: src=../../files/svars dest={{ rbenv_root }}/vars
+  copy: src=../../files/vars dest={{ rbenv_root }}/vars
   sudo: true
