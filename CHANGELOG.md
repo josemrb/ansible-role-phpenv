@@ -1,3 +1,10 @@
+## v2.0.3
+
+BUG FIXES
+
+- Fix a typo in the source filepath.
+- Make the gemrc file destination absolute.
+
 ## v2.0.2
 
 BUG FIXES
