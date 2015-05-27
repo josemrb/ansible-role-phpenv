@@ -6,7 +6,7 @@
   sudo: true
 
 - name: set gemrc
-  copy: src=../../files/gemrc dest=etc/gemrc
+  copy: src=../../files/gemrc dest=/etc/gemrc
   sudo: true
 
 - name: set vars
