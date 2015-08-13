@@ -1,4 +1,4 @@
-## v2.0.4 (Unrealeased)
+## v2.0.4
 
 BUG FIXES
 
