@@ -1,3 +1,9 @@
+## v2.0.4 (Unrealeased)
+
+BUG FIXES
+
+- Change dynamic includes.
+
 ## v2.0.3
 
 BUG FIXES
