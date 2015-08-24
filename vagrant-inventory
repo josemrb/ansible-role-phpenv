@@ -1,0 +1,2 @@
+[ansible-role-rbenv]
+ansible-role-rbenv.local ansible_ssh_host=192.168.40.3 ansible_ssh_port=22
