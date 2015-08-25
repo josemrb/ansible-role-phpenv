@@ -9,12 +9,13 @@ env:
   - RBENV_ENV=user
 
 before_install:
-  - useradd -m vagrant
   - apt-get update -qq
   - apt-get install -qq git autoconf binutils-doc bison build-essential flex gettext ncurses-dev
+
 install:
   - pip install ansible==1.8.4
+
 script:
   - echo localhost > inventory
   - ansible-playbook -i inventory test.yml --syntax-check
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -e "rbenv_env=$RBENV_ENV"
+  - ansible-playbook -i inventory test.yml --connection=local --sudo -e "rbenv_env=$RBENV_ENV rbenv_users=(travis)"
