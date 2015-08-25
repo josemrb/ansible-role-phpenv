@@ -15,7 +15,8 @@ Vagrant.configure('2') do |config|
       ansible.host_key_checking = false
       ansible.verbose = 'vvv'
       ansible.extra_vars = {
-        rbenv_env: ENV['RBENV_ENV']
+        rbenv_env: ENV['RBENV_ENV'],
+        rbenv_users: ['vagrant']
       }
     end
   end
