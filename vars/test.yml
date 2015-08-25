@@ -6,6 +6,3 @@ rbenv_rubies:
 
 rbenv_default_gems:
   - bundler
-
-rbenv_users:
-  - vagrant
