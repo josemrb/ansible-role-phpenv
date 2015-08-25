@@ -1,3 +1,9 @@
+## v3.0.0 (Unreleased)
+
+BREAKING CHANGES
+
+- rbenv_users now is an array of strings, containing only the name of the user.
+
 ## v2.0.4
 
 BUG FIXES
