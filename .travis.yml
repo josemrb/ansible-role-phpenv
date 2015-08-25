@@ -16,4 +16,4 @@ install:
 script:
   - echo localhost > inventory
   - ansible-playbook -i inventory test.yml --syntax-check
-  - "ansible-playbook -i inventory test.yml --connection=local --sudo -e \"rbenv_env=$RBENV_ENV\"-e '{ \"rbenv_users\": [\"travis\"] }'"
+  - "ansible-playbook -i inventory test.yml --connection=local --sudo -e \"rbenv_env=$RBENV_ENV\" -e '{ \"rbenv_users\": [\"travis\"] }'"
