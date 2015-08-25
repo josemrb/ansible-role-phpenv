@@ -1,5 +1,4 @@
 ---
-rbenv_env: system
 rbenv_version: v0.4.0
 rbenv_global: 2.2.3
 rbenv_rubies:
@@ -7,5 +6,3 @@ rbenv_rubies:
 
 rbenv_default_gems:
   - bundler
-
-rbenv_users: []

@@ -2,24 +2,24 @@
 - name: set default-gems
   template: >
     src=../../templates/default-gems.j2
-    dest={{ item.home }}/.rbenv/default-gems
+    dest=/home/{{ item }}/.rbenv/default-gems
   with_items: rbenv_users
   sudo: true
-  sudo_user: "{{ item.name }}"
+  sudo_user: "{{ item }}"
 
 - name: set gemrc
-  copy: src=../../files/gemrc dest={{ item.home }}/.gemrc
+  copy: src=../../files/gemrc dest=/home/{{ item }}/.gemrc
   with_items: rbenv_users
   sudo: true
-  sudo_user: "{{ item.name }}"
+  sudo_user: "{{ item }}"
 
 - name: set vars
-  copy: src=../../files/vars dest={{ item.home }}/.rbenv/vars
+  copy: src=../../files/vars dest=/home/{{ item }}/.rbenv/vars
   with_items: rbenv_users
   sudo: true
-  sudo_user: "{{ item.name }}"
+  sudo_user: "{{ item }}"
 
 - name: chown permission to .rbenv directory
-  shell: "chown -R {{ item.name }}:{{ item.name }} {{ item.home }}/.rbenv"
+  shell: "chown -R {{ item }}:{{ item }} /home/{{ item }}/.rbenv"
   sudo: true
   with_items: rbenv_users

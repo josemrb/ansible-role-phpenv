@@ -7,13 +7,13 @@
     accept_hostkey=true
   with_items: rbenv_users
   sudo: true
-  sudo_user: "{{ item.name }}"
+  sudo_user: "{{ item }}"
 
 - name: create plugins directory for selected users
   file: state=directory path={{ rbenv_root }}/plugins
   with_items: rbenv_users
   sudo: true
-  sudo_user: "{{ item.name }}"
+  sudo_user: "{{ item }}"
 
 - name: install plugins for selected users
   git: >
@@ -26,4 +26,4 @@
     - rbenv_users
     - rbenv_plugins
   sudo: true
-  sudo_user: "{{ item[0].name }}"
+  sudo_user: "{{ item[0] }}"
