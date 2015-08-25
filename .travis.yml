@@ -2,8 +2,6 @@
 language: python
 python: "2.7"
 
-sudo: false
-
 env:
   - RBENV_ENV=system
   - RBENV_ENV=user
