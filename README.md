@@ -21,21 +21,24 @@ rbenv_env: system
 rbenv_version: v0.4.0
 
 # This sets the rbenv global ruby version.
-rbenv_global: 2.2.1
+rbenv_global: 2.2.3
 
 # List of ruby versions to install.
 rbenv_rubies:
-  - 2.2.1
+  - 2.2.3
 
 # List of defaults gem to install on each ruby version.
 rbenv_default_gems:
   - bundler
-  - pry
-  - rubocop
 
 # List of users to install rbenv and ruby versions to.
 # Ignored if rbenv_env is set to 'system'
 rbenv_users: []
+
+# Example:
+# rbenv_users: []
+#   - user1
+#   - user2
 ```
 
 ## Dependencies
