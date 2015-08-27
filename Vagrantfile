@@ -1,3 +1,5 @@
+rbenv_env = ENV.key?('RBENV_ENV') ? ENV['RBENV_ENV'] : 'system'
+
 Vagrant.configure('2') do |config|
   config.vm.define 'ansible-role-rbenv' do |c|
     c.vm.box = 'ubuntu/trusty64'
@@ -13,9 +15,9 @@ Vagrant.configure('2') do |config|
       ansible.sudo = true
       ansible.inventory_path = 'vagrant-inventory'
       ansible.host_key_checking = false
-      ansible.verbose = 'vvv'
+      ansible.verbose = 'v'
       ansible.extra_vars = {
-        rbenv_env: ENV['RBENV_ENV'],
+        rbenv_env: rbenv_env,
         rbenv_users: ['vagrant']
       }
     end
