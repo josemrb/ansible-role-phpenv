@@ -3,8 +3,8 @@ language: python
 python: "2.7"
 
 env:
-  - RBENV_ENV=system
-  - RBENV_ENV=user
+  - phpenv_ENV=system
+  - PHPENV_ENV=user
 
 before_install:
   - sudo apt-get update -qq
@@ -18,5 +18,5 @@ script:
   - ansible-playbook -i inventory test.yml --syntax-check
   - >
     ansible-playbook -i inventory test.yml --connection=local --sudo
-    -e "rbenv_env=$RBENV_ENV"
-    -e "rbenv_users=['travis']"
+    -e "phpenv_env=$PHPENV_ENV"
+    -e "phpenv_users=['travis']"

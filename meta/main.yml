@@ -1,22 +1,14 @@
 ---
 galaxy_info:
-  author: Pablo Crivella
-  description: Role to install rbenv and multiple ruby versions.
-  company: NobelBiz
+  author: Jose Rivero
+  description: Role to install phpenv and multiple php versions using php-build.
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 1.5
   platforms:
-    - name: Ubuntu
-      versions:
-        - precise
-        - quantal
-        - raring
-        - saucy
-        - trusty
     - name: Debian
       versions:
-        - squeeze
         - wheezy
+        - jessie
   categories:
     - development
     - system

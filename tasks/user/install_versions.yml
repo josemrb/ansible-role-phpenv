@@ -1,0 +1,14 @@
+---
+- name: install versions for each user
+  shell: bash -lc 'PHP_BUILD_CONFIGURE_OPTS="{{ phpbuild_configure_extras }}" phpenv install {{ item[1] }}'
+  sudo: true
+  sudo_user: "{{ item[0] }}"
+  with_nested:
+    - phpenv_users
+    - phpenv_versions
+
+- name: set php {{ phpenv_global }} as global for each user
+  shell: bash -lc "phpenv global {{ phpenv_global }} && phpenv rehash"
+  sudo: true
+  sudo_user: "{{ item }}"
+  with_items: phpenv_users

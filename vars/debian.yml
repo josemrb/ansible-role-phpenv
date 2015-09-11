@@ -1,10 +1,21 @@
 ---
 build_dependencies:
-  - libcurl4-openssl-dev
-  - libffi-dev
-  - libreadline-dev
-  - libssl-dev
-  - libxml2-dev
-  - libxslt1-dev
-  - libyaml-dev
-  - zlib1g-dev
+  - re2c
+  - libgd-dev # gd
+  - libjpeg-dev # jpeg
+  - libjpeg62-turbo-dev # jpeg
+  - libpng12-dev # png
+  - zlib1g-dev # zlib
+  - libkrb5-dev # kerberos
+  - libssl-dev # openssl
+  - libmcrypt-dev # mcrypt
+  - libxml2-dev # soap xml-reader xmlrpc
+  - libxslt1-dev # xsl
+  - libcurl4-openssl-dev # curl
+  - libtidy-dev # tidy
+  - libmysqlclient-dev # mysql
+  - libpq-dev # postgresql
+  - libsqlite3-dev # sqlite
+  - libreadline-dev # readline
+  # extras
+  - libbz2-dev # bzip

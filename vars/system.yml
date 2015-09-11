@@ -1,2 +1,2 @@
 ---
-rbenv_root: "/usr/local/rbenv"
+phpenv_root: "/usr/local/phpenv"

@@ -1,6 +1,0 @@
----
-- include: "system/configure.yml"
-  when: "rbenv_env == 'system'"
-
-- include: "user/configure.yml"
-  when: "rbenv_env == 'user'"
