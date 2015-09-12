@@ -1,6 +1,6 @@
 ---
 - name: execute install script for selected users
-  shell: 'UPDATE=yes PHPENV_ROOT={{ phpenv_root }} ./bin/phpenv-install.sh'
+  shell: "PHPENV_ROOT={{ phpenv_root }} ./bin/phpenv-install.sh"
   args:
     chdir: "{{ mktemp.stdout }}"
   with_items: phpenv_users
