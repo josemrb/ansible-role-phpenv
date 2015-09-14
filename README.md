@@ -65,7 +65,7 @@ $ vagrant provision
 or you can run ansible directly.
 
 ```sh
-$ ansible-playbook tests/test.yml -i tests/vagrant-inventory --sudo
+$ ansible-playbook tests/test.yml -i tests/vagrant-inventory -k
 ```
 
 Please check the [documentation](http://docs.vagrantup.com/v2/) for more information on Vagrant.
