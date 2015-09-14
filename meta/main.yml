@@ -1,9 +1,9 @@
 ---
 galaxy_info:
   author: Jose Rivero
-  description: Role to install phpenv and multiple php versions using php-build.
+  description: Role to install custom versions of PHP using phpenv and php-build.
   license: MIT
-  min_ansible_version: 1.5
+  min_ansible_version: 1.8.4
   platforms:
     - name: Debian
       versions:
