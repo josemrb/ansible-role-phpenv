@@ -1,6 +1,6 @@
 # Ansible Role: phpenv
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-josemrb.phpenv-blue.svg)](https://galaxy.ansible.com/list#/roles/5112)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-josemrb.phpenv-blue.svg)](https://galaxy.ansible.com/list#/roles/5115)
 
 Role to install custom versions of PHP using [phpenv](https://github.com/CHH/phpenv) and [php-build](https://github.com/php-build/php-build).
 
@@ -40,6 +40,7 @@ phpenv_users:
  ```
 
 ## Example
+
 ```yaml
 ---
 - hosts: all
