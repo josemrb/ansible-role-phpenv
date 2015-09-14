@@ -3,7 +3,6 @@ build_dependencies:
   - re2c
   - libgd-dev # gd
   - libjpeg-dev # jpeg
-  - libjpeg62-turbo-dev # jpeg
   - libpng12-dev # png
   - zlib1g-dev # zlib
   - libkrb5-dev # kerberos
