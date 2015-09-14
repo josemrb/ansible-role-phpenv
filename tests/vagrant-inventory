@@ -1,0 +1,2 @@
+[ansible-role-phpenv]
+ansible-role-phpenv.local ansible_ssh_host=192.168.40.10 ansible_ssh_port=22

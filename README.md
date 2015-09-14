@@ -1,6 +1,6 @@
 # Ansible Role: phpenv
 
-[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-josemrb.phpenv-blue.svg)](https://galaxy.ansible.com/list#/roles/5112) [![Build Status](https://travis-ci.org/josemrb/ansible-role-phpenv.svg)](https://travis-ci.org/josemrb/ansible-role-phpenv)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-josemrb.phpenv-blue.svg)](https://galaxy.ansible.com/list#/roles/5112)
 
 Role to install custom versions of PHP using [phpenv](https://github.com/CHH/phpenv) and [php-build](https://github.com/php-build/php-build).
 
@@ -48,9 +48,31 @@ phpenv_users:
     - josemrb.phpenv
 ```
 
+## Testing
+
+This project comes with a Vagrantfile, this is a fast and easy way to test changes to the role.
+
+Launch the guest machine with the following command.
+```sh
+$ vagrant up
+```
+
+To run the provision again you can use:
+```sh
+$ vagrant provision
+```
+
+or you can run ansible directly.
+
+```sh
+$ ansible-playbook tests/test.yml -i tests/vagrant-inventory --sudo
+```
+
+Please check the [documentation](http://docs.vagrantup.com/v2/) for more information on Vagrant.
+
 ## License
 
-MIT
+Licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributors
 [pablocrivella](https://github.com/pablocrivella)  
