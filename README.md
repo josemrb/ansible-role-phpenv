@@ -1,65 +1,79 @@
-# Ansible Role: Rbenv
+# Ansible Role: phpenv
 
-[![Build
- Status](http://img.shields.io/travis/pablocrivella/ansible-role-rbenv.svg?style=flat)](http://travis-ci.org/pablocrivella/ansible-role-rbenv)
-[![Ansible
-Galaxy](http://img.shields.io/badge/galaxy-pablocrivella.rbenv-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2332)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-josemrb.phpenv-blue.svg)](https://galaxy.ansible.com/list#/roles/5112)
 
-Role to install rbenv and multiple ruby versions.
+Role to install custom versions of PHP using [phpenv](https://github.com/CHH/phpenv) and [php-build](https://github.com/php-build/php-build).
 
 ## Requirements
-
-Tested with Ansible 1.8.4.
-
-## Role Variables
-
-```yaml
----
-# This could be set to 'user' to support user installs.
-rbenv_env: system
-
-rbenv_version: v0.4.0
-
-# This sets the rbenv global ruby version.
-rbenv_global: 2.2.3
-
-# List of ruby versions to install.
-rbenv_rubies:
-  - 2.2.3
-
-# List of defaults gem to install on each ruby version.
-rbenv_default_gems:
-  - bundler
-
-# List of users to install rbenv and ruby versions to.
-# Ignored if rbenv_env is set to 'system'
-rbenv_users: []
-
-# Example:
-# rbenv_users: []
-#   - user1
-#   - user2
-```
+- Ansible 1.8.4.
 
 ## Dependencies
+- [ANXS.git](https://github.com/ANXS/git)
+- [ANXS.build-essential](https://github.com/ANXS/build-essential)
 
-- ANXS.git
-- ANXS.build-essential
-
-## Example Playbook
-
+## Variables
+### phpenv_env
+Sets the installation type, `user` or `system`.
 ```yaml
-- hosts: ruby-devbox
-  roles:
-    - pablocrivella.rbenv
+phpenv_env: system
 ```
 
-For a more detailed example check this [Playbook](https://github.com/pablocrivella/apps-forge/blob/master/provisioning/ruby.yml).
+### phpenv_global
+Sets the global php version, must be included in the versions to install.
+```yaml
+phpenv_global: 5.6.29
+```
+
+### phpenv_versions
+List of versions to install.
+```yaml
+phpenv_versions:
+  - 5.6.29
+```
+
+### phpenv_users
+List of users to install to.
+Ignored if phpenv_env is set to `system`
+```yaml
+phpenv_users:
+  - vagrant
+ ```
+
+## Example
+```yaml
+---
+- hosts: all
+
+  roles:
+    - josemrb.phpenv
+```
+
+## Testing
+
+This project comes with a Vagrantfile, this is a fast and easy way to test changes to the role.
+
+Launch the guest machine with the following command.
+```sh
+$ vagrant up
+```
+
+To run the provision again you can use:
+```sh
+$ vagrant provision
+```
+
+or you can run ansible directly.
+
+```sh
+$ ansible-playbook tests/test.yml -i tests/vagrant-inventory -k
+```
+
+Please check the [documentation](http://docs.vagrantup.com/v2/) for more information on Vagrant.
 
 ## License
 
-MIT
+Licensed under the MIT License. See the LICENSE file for details.
 
-## Author Information
-
-Pablo Crivella Backend Engineer @ NobelBiz.
+## Contributors
+[pablocrivella](https://github.com/pablocrivella)  
+[josemrb](https://github.com/josemrb)

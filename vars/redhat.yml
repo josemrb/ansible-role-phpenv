@@ -1,7 +1,0 @@
----
-build_dependencies:
-  - gcc
-  - openssl-devel
-  - libyaml-devel
-  - readline-devel
-  - zlib-devel

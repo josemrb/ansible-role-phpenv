@@ -1,5 +1,4 @@
 ---
 - include: prepare.yml
 - include: install.yml
-- include: configure.yml
-- include: install_rubies.yml
+- include: install_versions.yml

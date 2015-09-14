@@ -1,29 +1,27 @@
 ---
-- name: checkout rbenv_repo for selected users
-  git: >
-    repo={{ rbenv_repo }}
-    dest={{ rbenv_root }}
-    version={{ rbenv_version }}
-    accept_hostkey=true
-  with_items: rbenv_users
+- name: execute install script for selected users
+  shell: "PHPENV_ROOT={{ phpenv_root }} ./bin/phpenv-install.sh"
+  args:
+    chdir: "{{ mktemp.stdout }}"
+  with_items: phpenv_users
   sudo: true
   sudo_user: "{{ item }}"
 
 - name: create plugins directory for selected users
-  file: state=directory path={{ rbenv_root }}/plugins
-  with_items: rbenv_users
+  file: state=directory path={{ phpenv_root }}/plugins
+  with_items: phpenv_users
   sudo: true
   sudo_user: "{{ item }}"
 
 - name: install plugins for selected users
   git: >
     repo={{ item[1].repo }}
-    dest={{ rbenv_root }}/plugins/{{ item[1].name }}
+    dest={{ phpenv_root }}/plugins/{{ item[1].name }}
     version={{ item[1].version }}
     depth={{ item[1].depth }}
     accept_hostkey=true
   with_nested:
-    - rbenv_users
-    - rbenv_plugins
+    - phpenv_users
+    - phpenv_plugins
   sudo: true
   sudo_user: "{{ item[0] }}"

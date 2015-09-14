@@ -1,8 +1,0 @@
----
-rbenv_version: v0.4.0
-rbenv_global: 2.2.3
-rbenv_rubies:
-  - 2.2.3
-
-rbenv_default_gems:
-  - bundler

@@ -1,19 +1,17 @@
 ---
-- name: checkout rbenv_repo
-  git: >
-    repo={{ rbenv_repo }}
-    dest={{ rbenv_root }}
-    version={{ rbenv_version }}
-    accept_hostkey=true
+- name: execute install script
+  shell: "PHPENV_ROOT={{ phpenv_root }} ./bin/phpenv-install.sh"
+  args:
+    chdir: "{{ mktemp.stdout }}"
 
 - name: create plugins directory
-  file: state=directory path={{ rbenv_root }}/plugins
+  file: state=directory path={{ phpenv_root }}/plugins
 
 - name: install plugins
   git: >
     repo={{ item.repo }}
-    dest={{ rbenv_root }}/plugins/{{ item.name }}
+    dest={{ phpenv_root }}/plugins/{{ item.name }}
     version={{ item.version }}
     depth={{ item.depth }}
     accept_hostkey=true
-  with_items: rbenv_plugins
+  with_items: phpenv_plugins

@@ -2,21 +2,35 @@
 - include_vars: "main.yml"
 
 - include_vars: "system.yml"
-  when: "rbenv_env == 'system'"
-
-- include: "system/install.yml"
-  when: "rbenv_env == 'system'"
+  when: "phpenv_env == 'system'"
 
 - include_vars: "user.yml"
-  when: "rbenv_env == 'user'"
+  when: "phpenv_env == 'user'"
+
+- name: make temporary directory for build
+  register: mktemp
+  command: mktemp -d
+
+- name: checkout phpenv_repo
+  git: >
+    repo={{ phpenv_repo }}
+    dest={{ mktemp.stdout }}
+    version={{ phpenv_version }}
+    accept_hostkey=true
+
+- include: "system/install.yml"
+  when: "phpenv_env == 'system'"
 
 - include: "user/install.yml"
-  when: "rbenv_env == 'user'"
+  when: "phpenv_env == 'user'"
 
-- name: add rbenv initialization to profile
+- name: remove temporary build directory
+  file: name={{ mktemp.stdout }} state=absent
+
+- name: add phpenv initialization to profile
   template: >
-    src=rbenv.sh.j2
-    dest=/etc/profile.d/rbenv.sh
+    src=phpenv.sh.j2
+    dest=/etc/profile.d/phpenv.sh
     owner=root
     group=root
     mode=0755
