@@ -75,5 +75,6 @@ Please check the [documentation](http://docs.vagrantup.com/v2/) for more informa
 Licensed under the MIT License. See the LICENSE file for details.
 
 ## Contributors
+[josemrb](https://github.com/josemrb)  
 [pablocrivella](https://github.com/pablocrivella)  
-[josemrb](https://github.com/josemrb)
+[pumazi](https://github.com/pumazi)
