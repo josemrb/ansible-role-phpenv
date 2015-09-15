@@ -37,7 +37,7 @@ Ignored if phpenv_env is set to `system`
 ```yaml
 phpenv_users:
   - vagrant
- ```
+```
 
 ## Example
 
